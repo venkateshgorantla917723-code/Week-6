@@ -1,0 +1,54 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const AppTitle(
+          title: 'Custom Widgets Demo',
+        ),
+        backgroundColor: Colors.green,
+      ),
+      backgroundColor: Colors.lightGreenAccent,
+      body: const SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            ProfileCard(
+              name: 'Alice',
+              role: 'Flutter Developer',
+              imageUrl: 'https://i.pravatar.cc/150?img=2',
+            ),
+            SizedBox(height: 20),
+            ProfileCard(
+              name: 'Bob',
+              role: 'Backend Engineer',
+              imageUrl: 'https://i.pravatar.cc/150?img=4',
+            ),
+            SizedBox(height: 30),
+            CounterCard(),
+          ],
+        ),
+      ),
+    );
+  }
+}
